@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@inject IJSRuntime JS
+
 <head>
     <style>
         body {
@@ -98,4 +98,13 @@
         <p id="warning"></p>
     </div>
 </body>
-</html>
+
+
+@code{
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JS.InvokeVoidAsync("maze");
+
+    }
+}
